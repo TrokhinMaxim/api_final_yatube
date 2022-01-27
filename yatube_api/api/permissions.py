@@ -10,4 +10,4 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 class IsAuthenticated(permissions.IsAuthenticated):
     def has_permission(self, request, view):
-        return bool(request.user.is_authenticated)
+        return request.user.is_authenticated
