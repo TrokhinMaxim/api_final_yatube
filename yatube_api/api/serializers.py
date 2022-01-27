@@ -46,7 +46,7 @@ class FollowSerializer(serializers.ModelSerializer):
         fields = ('user', 'following')
 
     def validate_following(self, value):
-        if value.username == self.context['request'].user.username:
+        if value == self.context['request'].user:
             raise serializers.ValidationError('Фолов на себя же недоступен')
         return value
 
